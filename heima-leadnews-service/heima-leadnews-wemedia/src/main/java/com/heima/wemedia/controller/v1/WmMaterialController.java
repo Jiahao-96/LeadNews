@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/api/v1/material")
 public class WmMaterialController {
@@ -18,7 +20,7 @@ public class WmMaterialController {
      * @return
      */
     @PostMapping("/upload_picture")
-    public ResponseResult upload(@RequestParam("multipartFile") MultipartFile file){
+    public ResponseResult upload(@RequestParam("multipartFile") MultipartFile file) throws IOException {
         return wmMaterialService.upload(file);
     }
 

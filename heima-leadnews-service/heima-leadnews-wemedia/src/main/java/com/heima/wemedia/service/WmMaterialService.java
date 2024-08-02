@@ -6,13 +6,15 @@ import com.heima.model.wemedia.dtos.WmMaterialDto;
 import com.heima.model.wemedia.pojos.WmMaterial;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+
 public interface WmMaterialService extends IService<WmMaterial> {
 
     /**
      * 素材上传
      * @return
      */
-    public ResponseResult upload( MultipartFile file);
+    public ResponseResult upload( MultipartFile file) throws IOException;
 
     /**
      * 查询素材列表

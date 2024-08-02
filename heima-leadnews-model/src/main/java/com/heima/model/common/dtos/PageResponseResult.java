@@ -1,5 +1,7 @@
 package com.heima.model.common.dtos;
 
+import com.heima.model.common.enums.AppHttpCodeEnum;
+
 import java.io.Serializable;
 
 public class PageResponseResult extends ResponseResult implements Serializable {
@@ -16,7 +18,6 @@ public class PageResponseResult extends ResponseResult implements Serializable {
     public PageResponseResult() {
 
     }
-
 
     public int getCurrentPage() {
         return currentPage;
