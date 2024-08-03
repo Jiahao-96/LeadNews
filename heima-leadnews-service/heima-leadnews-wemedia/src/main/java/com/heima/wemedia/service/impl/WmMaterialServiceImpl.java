@@ -64,7 +64,7 @@ public class WmMaterialServiceImpl extends ServiceImpl<WmMaterialMapper, WmMater
         dto.checkParam();
         //开始查询
         WmUser wmUser = WmThreadLocalUtil.getUser();
-        Integer userId = wmUser.getApUserId();
+        Integer userId = wmUser.getId();
         Page<WmMaterial> page = lambdaQuery().eq(WmMaterial::getUserId, userId)
                 .eq(dto.getIsCollection()==1,WmMaterial::getIsCollection,dto.getIsCollection())
                 .page(new Page<WmMaterial>(dto.getPage(),dto.getSize()));

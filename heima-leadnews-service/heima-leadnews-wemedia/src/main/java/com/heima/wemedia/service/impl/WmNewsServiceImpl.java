@@ -49,8 +49,9 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
         //查询数据
 
         WmUser wmUser = WmThreadLocalUtil.getUser();
-        Integer userId = wmUser.getApUserId();
+        Integer userId = wmUser.getId();
         Page<WmNews> page = lambdaQuery().eq(dto.getStatus()!=null,WmNews::getStatus,dto.getStatus())
+                .eq(WmNews::getUserId,userId)
                 .gt(dto.getBeginPubdate()!=null,WmNews::getPublishTime,dto.getBeginPubdate())
                 .lt(dto.getEndPubdate()!=null,WmNews::getPublishTime,dto.getEndPubdate())
                 .eq(dto.getChannelId()!=null,WmNews::getChannelId,dto.getChannelId())
